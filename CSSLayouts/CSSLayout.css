@@ -1,0 +1,72 @@
+.grid-container {
+    display: grid;
+    column-gap: 50px;
+    grid-template-columns: auto auto auto;
+    background-color: #2196F3;
+    padding: 10px;
+  }
+  
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+
+  /* body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "header" "main" "footer";
+    height: 100vh;
+    margin: 0;
+  }
+  
+  header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: lightgray;
+  }
+  
+  header a {
+    color: black;
+    text-decoration: none;
+    margin-left: 20px;
+  }
+  
+  header a:hover {
+    color: white;
+  }
+  
+  main {
+    grid-area: main;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .content-left,
+  .content-right {
+    width: 45%;
+  }
+  
+  form button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: lightgray;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  footer {
+    grid-area: footer;
+    text-align: center;
+    background-color: lightgray;
+    padding: 20px;
+  } */
