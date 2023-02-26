@@ -3,11 +3,12 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default function PokemonForm({addPokemon}) {
     const URL = "https://pokeapi.co/api/v2/pokemon";
-    const [pokemonInfo] = useState([]);
+    const [...pokemonInfo] = useState([]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
         const pokemon = event.target[0].value;
+        console.log("Pokemon " + pokemon)
         let response = fetch(`${URL}/${pokemon}`)
             .then((data) => data.json())
             .then((json) => {
@@ -18,8 +19,6 @@ export default function PokemonForm({addPokemon}) {
                 pokemonInfo.uid = uuidv4()
                 addPokemon(pokemonInfo);
         });
-        
-        console.log("HandleSubmit pokemonInfo: " + pokemonInfo);
     }
     
     return (

@@ -31,9 +31,7 @@ export default function PokemonList({ pokemons }) {
         <div className="pokemon-list">
             <div className="card">
                 {pokemons.map((pokemon) => (
-
                     <PokemonCard pokemon={pokemon} handleUpdate={handleUpdateForm} />
-
                 ))}
             </div>
         </div>
