@@ -1,19 +1,24 @@
+
 import './App.css';
+import React, { useState } from 'react';
+import PokemonForm from './PokemonForm';
+import PokemonList from './PokemonList';
 
 function App() {
+  const [pokemons, addPokemons] = useState([]);
+
+  const addPokemon = (pokemonInfo) => {
+    addPokemons([...pokemons, pokemonInfo]);
+  };
+  console.log("Pokemons: " + pokemons);
+
   return (
-    <div>
-      <body>
-        <h1>Pokemon Cards</h1>
-        <form id="postData">
-            <input type="text" name="text" placeholder="Enter a Pokemon name..." />
-            <br />
-            <button class="button" type="submit">Add</button>
-          </form>
-        <div id="pokemon-container"></div>
-        <script src="script.js"></script>
-      </body>
+    <div className="App">
+      
+      <PokemonForm addPokemon={addPokemon} />
+      <PokemonList pokemons={pokemons} />
     </div>
+    
   );
 }
 
