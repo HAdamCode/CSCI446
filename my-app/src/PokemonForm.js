@@ -21,7 +21,7 @@ export default function PokemonForm({addPokemon}) {
         
         console.log("HandleSubmit pokemonInfo: " + pokemonInfo);
     }
-
+    
     return (
         <div className="form-container">
             <link rel="stylesheet" href="form.css"/>
