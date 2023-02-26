@@ -1,20 +1,19 @@
-
 import './App.css';
 import React, { useState } from 'react';
 import PokemonForm from './PokemonForm';
 import PokemonList from './PokemonList';
 
 function App() {
-  const [pokemons, addPokemons] = useState([]);
+  const [pokemonList, addPokemon] = useState([]);
 
-  const addPokemon = (pokemonInfo) => {
-    addPokemons([...pokemons, pokemonInfo]);
+  const addedPokemon = (pokemonInfo) => {
+    addPokemon([...pokemonList, pokemonInfo]);
   };
 
   return (
     <div className="App">
-      <PokemonForm addPokemon={addPokemon} />
-      <PokemonList pokemons={pokemons} />
+      <PokemonForm addPokemon={addedPokemon} />
+      <PokemonList pokemonList={pokemonList} />
     </div>
   );
 }

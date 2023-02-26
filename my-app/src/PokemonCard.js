@@ -1,15 +1,15 @@
-import { v4 as uuidv4 } from 'uuid';
 import { useEffect, useState } from "react";
+import './PokemonCard.css';
 
 export default function PokemonCard({ pokemon, handleUpdate }) {
     const URL = "https://pokeapi.co/api/v2/pokemon";
     const [inputValue, setInputName] = useState('');
-
     const handleInputChange = (event) => {
         setInputName(event.target.value);
     };
+    
     return (
-        <div id="card">
+        <div class="pokemon-card">
             <link rel="stylesheet" href="App.css" />
             <img src={pokemon.sprite} />
             <p>{pokemon.name}</p>
