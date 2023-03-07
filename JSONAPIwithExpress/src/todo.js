@@ -39,11 +39,7 @@ todoRouter.post('/todo', async (req, res) => {
 
 todoRouter.put('/todo/:todoId', async (req, res) => {
 	const todoID = req.params.todoId;
-	const updatedTodo = {
-		id: todoID,
-		description: "Updated Description",
-		completed: false,
-	};
+	const updatedTodo = req.body.body
 	try {
 		await fs.readFile(`storage/${todoID}.json`);
 		await fs.writeFile(`storage/${todoID}.json`, JSON.stringify(updatedTodo));

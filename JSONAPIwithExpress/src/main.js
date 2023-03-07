@@ -1,12 +1,14 @@
 import express from 'express';
 import cors from 'cors';
 import todoRouter from './todo.js'
+import bodyParser from "body-parser";
 
 const port = 3001;
 const app = express();
 
 // Use the JSON parsing middleware so we can access it via `req.body`
 app.use(express.json());
+app.use(bodyParser.json());
 
 // TODO: Attach your `todos` router here
 app.use(cors())
