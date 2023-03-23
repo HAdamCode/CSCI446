@@ -1,16 +1,17 @@
 import {Link, useLoaderData} from 'react-router-dom';
+import './Todos.css';
 export default function Todos() {
   const { todos } = useLoaderData();
 
   return (
     <>
+    <link rel="stylesheet" href="Todos.css" />
       {todos.map((todo) => (
-        <div key={todo.id}>
-          <Link to={`${todo.id}`}><p>{todo.description}</p></Link>
-          
+        <div key={todo.id} class="div">   
+          <Link class="link-wrapper" to={`${todo.id}`}><h3>{todo.description}</h3></Link>
           <p>completed: {todo.completed.toString()}</p>
         </div>
-      ))}
+      ))} 
     </>
   );
 }

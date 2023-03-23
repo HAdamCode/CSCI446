@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Wrapper from './Wrapper';
 import Todos, { fetchTodo } from './Todos';
 import SingleTodo, { getTodo } from './SingleTodo';
-import NewTodo, { createTodo } from './NewTodo';
+import CreateTodo from './NewTodo';
 
 const router = createBrowserRouter([
   {
@@ -26,12 +26,12 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/todo/:todoId",
-        loader: createTodo,
+        path :"/todo/new",
+        loader: CreateTodo,
         element: (
-            <NewTodo />
-        ),
-      },
+            <CreateTodo />
+        )
+      }
     ],
   },
 ]);

@@ -32,9 +32,10 @@ todoRouter.get('/todo/:todoId', async (req, res) => {
 })
 
 todoRouter.post('/todo', async (req, res) => {
-	await fs.writeFile(`storage/${sampleTodo.id}.json`, JSON.stringify(sampleTodo));
-	res.status(201);
-	res.send('Post completed');
+    req.body.id = uuidv4();
+    await fs.writeFile(`storage/${req.body.id}.json`, JSON.stringify(req.body));
+    res.status(201);
+    res.send('Post completed');
 })
 
 todoRouter.put('/todo/:todoId', async (req, res) => {

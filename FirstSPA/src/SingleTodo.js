@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
+import './SingleTodo.css';
 
 export async function getTodo({ params }) {
-  console.log(params.todoId)
   const response = await fetch(`http://localhost:3001/todo/${params.todoId}`);
   return await response.json();
 }
@@ -11,7 +11,8 @@ export default function SingleTodo() {
 
   return (
     <div key={todo.id}>
-      <h1>{todo.description}</h1>
+      <link rel="stylesheet" href="SingleTodo.css"/>
+      <h2>Description: {todo.description}</h2>
       <p>Completed: {todo.completed.toString()}</p>
     </div>
   );
