@@ -11,7 +11,7 @@ export default function SingleTodo() {
 
   return (
     <div key={todo.id}>
-      <link rel="stylesheet" href="SingleTodo.css"/>
+      <link rel="stylesheet" href="SingleTodo.css" />
       <h2>Description: {todo.description}</h2>
       <p>Completed: {todo.completed.toString()}</p>
     </div>

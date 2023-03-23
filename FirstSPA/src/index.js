@@ -22,14 +22,14 @@ const router = createBrowserRouter([
         path: "/todo/:todoId",
         loader: getTodo,
         element: (
-            <SingleTodo />
+          <SingleTodo />
         ),
       },
       {
-        path :"/todo/new",
+        path: "/todo/new",
         loader: CreateTodo,
         element: (
-            <CreateTodo />
+          <CreateTodo />
         )
       }
     ],
