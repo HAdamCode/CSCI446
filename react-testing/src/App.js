@@ -6,8 +6,6 @@ function App() {
   const [user, setUser] = useState(null);
   const [userTodos, setUserTodos] = useState([]);
 
-  throw new Error('fake error to find in the smoke test');
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -18,15 +16,16 @@ function App() {
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(`https://dummyjson.com/users/${userId}/todos`);
-      const json = await response.json();
-      setUserTodos(json.todos);
-    };
-
-    if (userId <= 0) return;
-    fetchData();
-  });
+    if (userId > 0) {
+      fetchData();
+    }
+  }, [user]);
+  
+  const fetchData = async () => {
+    const response = await fetch(`https://dummyjson.com/users/${userId}/todos`);
+    const json = await response.json();
+    setUserTodos(json.todos);
+  };
 
   return (
     <>

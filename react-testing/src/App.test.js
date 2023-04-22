@@ -21,32 +21,63 @@ describe("Testing App.js", () => {
     fetchMock.resetMocks();
   });
 
-  // TODO: Render the <App /> and assert `users and their todos` is in the document via the `screen` object and the `getByText` method
-  it("renders without error", () => {});
+  it("renders without error", () => {
+    fetchMock.mockResponse(JSON.stringify(mockObject));
+    render(<App />);
+    const linkElement = screen.getByText(/Users and their todos/i)
+    expect(linkElement).toBeInTheDocument();
+  });
 
-  // TODO: Use `fireEvent` to fire two events: a `change` event for the number input and a `submit` event for the form
-  // TODO: Then, use `waitFor` for data to come into view when the fetch request has returned and modified state (hint: use the firstName or lastName as the text to get using `getByText`)
   it("fetches the user when an ID is submitted", async () => {
     fetchMock.mockResponse(JSON.stringify(mockObject));
     render(<App />);
     const input = screen.getByRole("spinbutton");
     const form = screen.getByRole("form");
 
-    await waitFor(() => {});
+    fireEvent.change
+      (
+        input,
+        {
+          target: { value: 1 }
+        }
+      )
+    fireEvent.submit(form)
+
+    await waitFor(
+      () => {
+        screen.getByText(/Terry/i)
+      }
+    );
   });
 
-  // TODO: Do the same as above, but ensure that the useEffect hook has a proper dependencies list so that the toHaveBeenCalled assertion passes
   it("fetches the user's todos right after the user object is fetch (useEffect works)", async () => {
     fetch.mockResponse(JSON.stringify(mockObject));
     render(<App />);
     const input = screen.getByRole("spinbutton");
     const form = screen.getByRole("form");
 
-    // HINT: Do the same as the above test
-    await waitFor(() => {});
+    fireEvent.change
+      (
+        input,
+        {
+          target: { value: 1 }
+        }
+      )
 
-    // HINT: wait for some text from the todo array to come into view using getByText
-    await waitFor(() => {});
+    fireEvent.submit(form)
+
+    await waitFor(
+      () => {
+        screen.getByText(/Terry/i)
+      }
+    );
+
+    await waitFor(
+      () => {
+        screen.getByText(/Create a cookbook/i)
+        screen.getByText(/Start a daily/i)
+      }
+    )
 
     expect(fetch).toHaveBeenCalledTimes(2);
   });
